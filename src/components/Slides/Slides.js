@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Baner1 from "../../../imagenes/baner1.png"
-import Baner2 from "../../../imagenes/baner2.png"
-import Baner3 from "../../../imagenes/baner3.png"
+import Baner1 from "../../imagenes/baner1.png"
+import Baner2 from "../../imagenes/baner2.png"
+import Baner3 from "../../imagenes/baner3.png"
 import "./Slides.css"
 
 function Slides(){

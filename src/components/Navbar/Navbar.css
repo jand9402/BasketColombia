@@ -9,6 +9,7 @@
 .nav-link{
     color: white;
     font-size: large !important;
+    cursor: pointer;
 }
 
 .nav-link:hover{
@@ -43,6 +44,10 @@
     to{
         transform: rotate(360deg);
 }
+}
+
+.Links{
+    text-decoration: none;
 }
 
 

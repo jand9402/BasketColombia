@@ -7,9 +7,19 @@
 
 .cardHome:hover{
     transform:scale(1.05);
-    -webkit-transform:scale(1.05);
-    -moz-transform:scale(1.05);
-    -ms-transform:scale(1.05);
-    -o-transform:scale(1.05);
+    background-color: rgb(202, 202, 202);
+    cursor: hand;
 }
 
+.card-title{
+    cursor: pointer;
+}
+
+.LinkCardsHome{
+    color: black;
+}
+
+.LinkCardsHome:hover{
+    color: black;
+    font-weight: bold;
+}

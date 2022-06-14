@@ -1,3 +1,7 @@
 .nav-link-eventos{
     color: black;
 }
+
+.dropdown-item{
+    cursor: pointer;
+}

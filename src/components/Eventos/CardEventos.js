@@ -3,22 +3,25 @@ import { Link } from "react-router-dom";
 import './Eventos.css'
 
 
-function CardsEventos(){
+
+function CardsEventos({id, city, category, gender, inscription_fee, img}){
+
 return(
     <>
     <div class="col colEvent card cardEvento">
-  <img src="https://previews.123rf.com/images/enterline/enterline1403/enterline140300035/26430843-una-ilustraci%C3%B3n-vectorial-de-un-concepto-de-torneo-de-baloncesto-.jpg" class="card-img-top" alt="..."/>
+  <img src={img} class="card-img-top" alt="..."/>
   <div class="card-body">
-    <h5 class="card-title">Ciudad:</h5>
+    <h5 class="card-title">Ciudad: {city}</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item list-group-item-evento">Categoria: U10</li>
-    <li class="list-group-item list-group-item-evento">Rama: Femenino</li>
-    <li class="list-group-item list-group-item-evento">Inscripción: 500.000</li>
+    <li class="list-group-item list-group-item-evento">Categoria: {category}</li>
+    <li class="list-group-item list-group-item-evento">Rama: {gender}</li>
+    <li class="list-group-item list-group-item-evento">Inscripción: {inscription_fee}</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <Link to={"/detail/" + id}>
+    <button className="btn-primary">más información</button>
+    </Link>
   </div>
 </div>
 </>

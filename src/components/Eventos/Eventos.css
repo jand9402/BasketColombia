@@ -31,3 +31,19 @@
 .list-group-item-evento{
     text-align: left;
 }
+
+.btn-primary{
+    background-color: #73042a;
+    border-color: #73042a;
+    transition: 300ms all;
+    -webkit-transition: 300ms all;
+    -moz-transition: 300ms all;
+    -ms-transition: 300ms all;
+    -o-transition: 300ms all;
+}
+
+.btn-primary:hover{
+    background-color: #fc4604;
+    border-color: #fc4604;
+    cursor: hand;
+}

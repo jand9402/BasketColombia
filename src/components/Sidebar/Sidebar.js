@@ -1,8 +1,54 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css"
+import { useSelector, useDispatch } from "react-redux";
+import { locationFilter, categoryFilter, genderFilter } from "../../redux/actions";
+import { Events } from "../../redux/actions";
 
 function Sidebar(){
+    const dispatch = useDispatch();
+    const allEvents = useSelector((state) => state.all_events);
+    let cities = []
+    allEvents.map(e => {
+      if(!cities.includes(e.city)){
+        cities.push(e.city)
+      }
+    })
+    let categories = []
+    allEvents.map(e => {
+      if(!categories.includes(e.category)){
+        categories.push(e.category)
+      }
+    })
+    let gender = []
+    allEvents.map(e => {
+      if(!gender.includes(e.gender)){
+        gender.push(e.gender)
+      }
+    })
+
+    function handleLocation(e, event){
+      console.log(e.target.value)
+      dispatch(locationFilter(event))
+    }
+
+    function handlecategory(e, event){
+      console.log(event)
+      dispatch(categoryFilter(event))
+    }
+
+    function handleGender(e, event){
+      console.log(event)
+      dispatch(genderFilter(event))
+    }
+
+    function handletodos(e){
+      console.log(e.target.value)
+      dispatch(Events(e.target.value))
+    }
+
+    
+
     return(
         <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
@@ -12,44 +58,48 @@ function Sidebar(){
     <div class="collapse navbar-collapse" id="navbarSupportedContent2">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <button className="btn">Todos los eventos</button>
+          <button value="all" onClick={(e) => handletodos(e)} className="btn">Todos los eventos</button>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-eventos dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link nav-link-eventos dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Ubicación
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Todas las ubicaciones</a></li>
+            <li><a value='all' onClick={(e) => handletodos(e)} class="dropdown-item">Todas las ubicaciones</a></li>
             <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#">Medellín</a></li>
-            <li><a class="dropdown-item" href="#">Bogotá</a></li>
-            <li><a class="dropdown-item" href="#">Cali</a></li>
-            <li><a class="dropdown-item" href="#">Cartagena</a></li>
+            {cities.map((event) => {
+          return (
+            <li><a value={event} onClick={(e) => handleLocation(e, event)} class="dropdown-item">{event}</a></li>
+          );
+        })}
         </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-eventos dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link nav-link-eventos dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categoría
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Todas las categorias</a></li>
+            <li><a class="dropdown-item" value='all' onClick={(e) => handletodos(e)}>Todas las categorias</a></li>
             <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#">U10</a></li>
-            <li><a class="dropdown-item" href="#">U11</a></li>
-            <li><a class="dropdown-item" href="#">U12</a></li>
-            <li><a class="dropdown-item" href="#">U13</a></li>
+            {categories.map((event) => {
+          return (
+            <li><a value={event} onClick={(e) => handlecategory(e, event)} class="dropdown-item">{event}</a></li>
+          );
+        })}
         </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link nav-link-eventos dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link nav-link-eventos dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Rama
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Todas las ramas</a></li>
+            <li><a class="dropdown-item" onClick={(e) => handletodos(e)}>Todas las ramas</a></li>
             <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#">Masculino</a></li>
-            <li><a class="dropdown-item" href="#">Femenino</a></li>
-            <li><a class="dropdown-item" href="#">Mixto</a></li>
+            {gender.map((event) => {
+          return (
+            <li><a value={event} onClick={(e) => handleGender(e, event)} class="dropdown-item" >{event}</a></li>
+          );
+        })}
         </ul>
         </li>
       </ul>

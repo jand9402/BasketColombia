@@ -46,7 +46,7 @@ export default function DetailEvent(){
 <div className="mb-6">
 <ul class="list-group mb-5 mt-5">
   <li class="list-group-item">Organizador: {current.name}</li>
-  <li class="list-group-item">Ciudad: {current.City}</li>
+  <li class="list-group-item">Ciudad: {current.city}</li>
   <li class="list-group-item">Fecha de inicio: {current.start_date}</li>
   <li class="list-group-item">Fecha de Fin: {current.end_date}</li>
   <li class="list-group-item">Categoria: {current.category}</li>

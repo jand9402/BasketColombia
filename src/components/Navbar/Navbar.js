@@ -35,7 +35,9 @@ return(
           </ul>
         </li>
         <li className="nav-item">
+          <Link className="Link" to="/login">
           <a className="nav-link active">Iniciar sesión</a>
+          </Link>
         </li>
       </ul>
       <form className="d-flex" role="search">

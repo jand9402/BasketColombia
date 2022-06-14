@@ -2,6 +2,10 @@
     background-color: #fc4604;
 }
 
+.Link{
+    text-decoration: none;
+}
+
 .navbar-toggler-icon{
     background-image: url('https://cdn0.iconfinder.com/data/icons/user-interface-150/24/List_menu_toggle-512.png');
 }
